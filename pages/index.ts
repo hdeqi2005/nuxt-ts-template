@@ -1,6 +1,7 @@
   // use TypeScript here
-  import { Vue, Component, Prop } from 'vue-property-decorator'
-  import Counter from '~/components/Counter.vue'
+  //import { Vue, Component, Prop } from 'vue-property-decorator'
+  import { Component, Inject, Model, Prop, Provide, Vue, Watch } from 'nuxt-property-decorator'
+  //import Counter from '~/components/Counter.vue'
   import UserModule from '@/store/user'
   interface User {
     firstName: string
@@ -9,7 +10,7 @@
   
   @Component({
     components: {
-      Counter
+      Counter: () => import('@/components/Counter.vue')
     }
   })
   export default class YourComponent extends Vue {

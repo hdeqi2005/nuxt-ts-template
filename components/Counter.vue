@@ -4,7 +4,7 @@
     <div class="Triangle Triangle--one" />
     <div class="Triangle Triangle--three" />
     <div class="Triangle Triangle--four" />
-    {{msg}}--{{props1}}
+    {{msg}}--{{props1}} 我是一个插件
   </div>
 </template>
 <script>
