@@ -23,11 +23,13 @@ export default {
   ** Global CSS
   */
   css: [
+  'element-ui/lib/theme-chalk/index.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+   '@/plugins/element-ui'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -51,7 +53,7 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'http://120.78.91.203:8082/clerp-app-api/3/', // 目标接口域名
+      target: 'http://120.78.91.203:8082/clerp-app-api/', // 目标接口域名
       changeOrigin: true, // 表示是否跨域
       pathRewrite: {
         '^/api': '/', // 把 /api 替换成 /
