@@ -56,8 +56,9 @@ class User extends VuexModule implements IUserState {
     public async getUserNameMd5_action(userId: string) {
       try {
           const resObj: any = await getValidatorToken(userId);
-          console.log('=======err should not be exc below==============');
-          this.SET_USERNAMEMD5(resObj.data);
+          debugger
+          console.log('=======err should not be exc below=============='+JSON.stringify(this));
+          this.context.commit('SET_USERNAMEMD5',resObj.data)
           return Promise.resolve(resObj);
       } catch (error) {
           const errObj = {
@@ -119,19 +120,19 @@ class User extends VuexModule implements IUserState {
       }
     // mutations 存储用户名加密字符串
     @Mutation
-    private SET_USERNAMEMD5(userNameMd5: string) {
+    private SET_USERNAMEMD5(userNameMd5: string) :void {
       this.userNameMd5 = userNameMd5;
       setUserNameMd5(userNameMd5);
     }
      // mutations 存储token字符串
      @Mutation
-     private SET_TOKEN(token: string) {
+     private SET_TOKEN(token: string):void {
        this.token = token;
        setToken(token);
      }
      // mutations 存储菜单列表
      @Mutation
-     private SET_MENU(menuList: any) {
+     private SET_MENU(menuList: any):void {
        this.menuList = menuList;
       // setMenuList(menuList);
      }

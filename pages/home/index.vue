@@ -3,7 +3,7 @@
         <el-row>
             <el-button>参数:{{$route.query.newsId}}</el-button>
             <el-button type="primary">主要按钮{{userForm.username}}</el-button>
-            <el-button type="success">成功按钮{{homeName}}</el-button>
+            <el-button type="success">成功homeName按钮{{homeName}}</el-button>
             <el-button type="info">信息按钮{{extendsHomeName}}</el-button>
             <el-button type="warning">警告按钮</el-button>
             <el-button type="danger">危险按钮</el-button>
@@ -61,7 +61,7 @@
     }
   })
  // export default class YourComponent extends Vue {
- export default class about extends mixins(baseMixin) {
+ export default class extends mixins(baseMixin) {
   //  @Prop({ type: Object})  user!: User
    public homeName:any =''//this.$route.query.newsId;//'home===='//this.config.username
    public extendsHomeName:string ='2222'//this.homeName;
@@ -80,7 +80,9 @@
     get fullName (): string {
       return `${this.user.firstName} ${this.user.lastName}`
     }
-
+   public mounted() {
+     this.homeName = this.$route.query.newsId; 
+    }
     public getUUId() {
         try {
           //const resObj = await UserModule.(
