@@ -81,7 +81,8 @@
       return `${this.user.firstName} ${this.user.lastName}`
     }
    public mounted() {
-     this.homeName = this.$route.query.newsId; 
+     this.homeName = this.$config.homeName;//this.$route.query.newsId;
+     debugger 
     }
     public getUUId() {
         try {

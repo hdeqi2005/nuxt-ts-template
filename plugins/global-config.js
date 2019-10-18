@@ -1,3 +1,3 @@
-// import Vue from 'vue'
-// import config from '@/config'
-// Vue.use(config)
+import Vue from 'vue'
+import config from '@/config'
+Vue.prototype.$config = config

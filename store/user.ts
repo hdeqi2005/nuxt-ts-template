@@ -1,4 +1,4 @@
-import { VuexModule, Module, Action, Mutation, MutationAction, getModule } from 'vuex-module-decorators';
+import { VuexModule, Module, Action, Mutation } from 'vuex-module-decorators';
 // vuex-module-decorators 使用说明https://github.com/championswimmer/vuex-module-decorators
 import { getToken, setToken, setUserNameMd5, getUserNameMd5, getMenuList, setMenuList } from '@/utils/cookies';
 import {getValidatorToken, getMenuByToken, login} from '@/api/user';
@@ -56,8 +56,8 @@ class User extends VuexModule implements IUserState {
     public async getUserNameMd5_action(userId: string) {
       try {
           const resObj: any = await getValidatorToken(userId);
-          debugger
-          console.log('=======err should not be exc below=============='+JSON.stringify(this));
+          // debugger
+          // console.log('=======err should not be exc below=============='+JSON.stringify(this));
           this.context.commit('SET_USERNAMEMD5',resObj.data)
           return Promise.resolve(resObj);
       } catch (error) {

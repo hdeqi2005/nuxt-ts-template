@@ -29,16 +29,18 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-   '@/plugins/element-ui'
+   '@/plugins/element-ui',
+   {src: '@/plugins/global-config.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
   */
  'buildModules': [
-  //  ['@nuxt/typescript-build'],
-  ['@nuxt/typescript-build', {
-    'typeCheck': true,
-  }],
+    ['@nuxt/typescript-build'],
+  // ['@nuxt/typescript-build', {
+  //   typeCheck: true,
+  //  // ignoreNotFoundWarnings: true
+  // }]
 ],
   /*
   ** Nuxt.js modules
