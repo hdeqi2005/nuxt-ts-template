@@ -1,12 +1,12 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
-
+import defaultConfig from '@/config'
 // 声明合并
 
-declare module 'vue/types/vue' {
-    interface Vue {
-      $config: any;
-    }
-  }
+// declare module 'vue/types/vue' {
+//     interface Vue {
+//       $config: any;
+//     }
+//   }
 const WIDTH = 992; // refer to Bootstrap's responsive design
 @Component({
   components: {
@@ -14,8 +14,9 @@ const WIDTH = 992; // refer to Bootstrap's responsive design
   },
 })
 export default class BaseMixin extends Vue {
+    public config:any
     public userForm = {
-        username: 'admin',
+        username: 'admin-dk',
         password: '111111',
       };
 //   get device() {
@@ -34,11 +35,16 @@ export default class BaseMixin extends Vue {
 //   }
 
  private beforeMount() {
+   console.log('===baseMixin====beforeMount========')
    // window.addEventListener('resize', this.resizeHandler);
   }
 
-  // private mounted(){
-  // };
+  private mounted(){
+      this.$nextTick(()=>{
+        this.config = defaultConfig
+      })
+      
+  };
 
   private beforeDestroy() {
    // window.removeEventListener('resize', this.resizeHandler);

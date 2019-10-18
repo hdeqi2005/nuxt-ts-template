@@ -24,9 +24,18 @@
         ]
       },
       "types": [
-        "@types/node"
+        "@nuxt/types",
+        "@types/node",
+        "@types/webpack-env"
       ]
     },
+    "include": [
+      "nuxt.config.js",
+      "client/**/*.vue",
+      "client/**/*.ts",
+      "tests/**/*.ts",
+      "index.d.ts"
+    ],
     "exclude": [
       "node_modules"
     ]

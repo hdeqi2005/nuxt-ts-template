@@ -12,7 +12,7 @@ export default {
     name:'Counter',
     data(){
         return {
-            msg:'hello-world'
+            msg: this.$route.query.newsId
         }
     },
     props:{
