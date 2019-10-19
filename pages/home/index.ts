@@ -30,7 +30,7 @@
     }
   })
  // export default class YourComponent extends Vue {
- export default class about extends mixins(baseMixin) {
+ export default class extends mixins(baseMixin) {
   //  @Prop({ type: Object})  user!: User
    public homeName:any =''//this.$route.query.newsId;//'home===='//this.config.username
    public extendsHomeName:string ='2222'//this.homeName;
@@ -49,12 +49,15 @@
     get fullName (): string {
       return `${this.user.firstName} ${this.user.lastName}`
     }
-
+   
+   public mounted() {
+     //debugger
+     this.homeName = this.$route.query.newsId+this.$config.homeName;//
+     //debugger 
+    }
+    
     public getUUId() {
         try {
-          //const resObj = await UserModule.(
-        //     this.loginForm.username,
-        //   );
         const resObj = this.$store.dispatch('user/getUserNameMd5_action', this.loginForm.username).then(res =>{
                     console.log(res)
         })

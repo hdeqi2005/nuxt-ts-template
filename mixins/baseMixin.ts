@@ -1,5 +1,5 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import defaultConfig from '@/config'
+import config from '@/config'
 // 声明合并
 
 // declare module 'vue/types/vue' {
@@ -14,7 +14,7 @@ const WIDTH = 992; // refer to Bootstrap's responsive design
   },
 })
 export default class BaseMixin extends Vue {
-    public config:any
+    public $config=config //修复 this.$config 无法找到的问题 实际来自插件
     public userForm = {
         username: 'admin-dk',
         password: '111111',
@@ -34,23 +34,23 @@ export default class BaseMixin extends Vue {
 //     }
 //   }
 
- private beforeMount() {
+public beforeMount() {
    console.log('===baseMixin====beforeMount========')
    // window.addEventListener('resize', this.resizeHandler);
   }
 
-  private mounted(){
+  public mounted(){
       this.$nextTick(()=>{
-        this.config = defaultConfig
+       
       })
       
   };
 
-  private beforeDestroy() {
+  public beforeDestroy() {
    // window.removeEventListener('resize', this.resizeHandler);
   }
 
-  private isMobile() {
+  public isMobile() {
     const rect = document.body.getBoundingClientRect();
     return rect.width - 1 < WIDTH;
   }
