@@ -31,7 +31,8 @@
       },
       "types": [
         "@nuxt/types",
-        "@types/node"
+        "@types/node",
+        "nuxt-i18n"
       ]
     },
     "include": [

@@ -8,7 +8,7 @@
             <el-input type="password" v-model="form.userPwd"></el-input>
         </el-form-item>
         <el-form-item>
-            <el-button class="sub-btn" type="primary" @click="onSubmit">登录，走一波</el-button>
+            <el-button class="sub-btn" type="primary" @click="onSubmit">{{ $t('login.loginBtn') }}</el-button>
         </el-form-item>
         </el-form>
   </div>

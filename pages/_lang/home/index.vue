@@ -16,7 +16,7 @@
   </div>
    <div class="login-container">
           <p>
-            用户名:
+            用户名{{ $t('home.title') }}:
           <input v-model="loginForm.username" type="text" placeholder="请输入用户名" />
           </p>
            <p>

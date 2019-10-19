@@ -1,6 +1,5 @@
 import Vuex from 'vuex';
 
-
 // import Vue from 'vue';
 // import Vuex from 'vuex';
 // import { IUserState } from './modules/user'
@@ -27,9 +26,16 @@ import Vuex from 'vuex';
 export const state = () => ({
   count: 15,
   totalPrice:100,
+  locales: ['en', 'cn'],
+  locale: 'cn'
 })
 
 export const mutations = {
+  SET_LANG(state:any, locale:any) {
+    if (state.locales.indexOf(locale) !== -1) {
+      state.locale = locale
+    }
+  },
   add (state: any, increment: Number) {
     state.count += increment
   },

@@ -1,4 +1,3 @@
-
 export default {
   mode: 'spa',
   /*
@@ -25,13 +24,20 @@ export default {
   css: [
   'element-ui/lib/theme-chalk/index.css'
   ],
+  router: {
+    middleware: 'i18n'
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
    '@/plugins/element-ui',
+   '@/plugins/i18n.js',
    {src: '@/plugins/global-config.js', ssr: false}
   ],
+  // generate: {
+  //   routes: ['/', '/home', '/en', '/en/home']
+  // },
   /*
   ** Nuxt.js dev-modules
   */
@@ -48,7 +54,30 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios','@nuxtjs/proxy',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    
+    // [
+    //   'nuxt-i18n',
+    //   {
+    //     locales: ['en', 'es'],
+    //     defaultLocale: 'es',
+    //     vueI18n: {
+    //       fallbackLocale: 'en',
+    //       messages: {
+    //         en: {
+    //           "home": 'Home',
+    //           "other": 'Other',
+    //           "greeting":'Hello world!'
+    //         },
+    //         es: {
+    //           "home": 'Inicio',
+    //           "other": 'Otros',
+    //           "greeting":'大大'
+    //         }
+    //       }
+    //     }
+    //   }
+    // ]
   ],
   /*
   ** Axios module configuration
@@ -77,6 +106,6 @@ export default {
     */
     extend (config, ctx) {
     },
-    vendor: ['axios'] //为防止重复打包
+    vendor: ['axios','vue-i18n'] //为防止重复打包
   }
 }
